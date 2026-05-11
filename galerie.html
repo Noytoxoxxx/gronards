@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galerie - Aux Grognards</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+<body>
+
+    <nav>
+        <div class="logo">AUX GROGNARDS</div>
+        
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+
+        <ul class="nav-list">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="carte.html">La Carte</a></li>
+            <li><a href="galerie.html">Galerie</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="main-wrapper">
+        <section>
+            <h2 class="section-title" data-aos="fade-down">L'Ambiance</h2>
+            <p class="section-subtitle" data-aos="fade-up">En images</p>
+
+            <div class="gallery-grid">
+                <div class="gallery-item" data-aos="zoom-in">
+                    <img src="1.png" alt="Photo Aux Grognards 1">
+                </div>
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="2.png" alt="Photo Aux Grognards 2">
+                </div>
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="3.png" alt="Photo Aux Grognards 3">
+                </div>
+                <div class="gallery-item" data-aos="zoom-in">
+                    <img src="4.png" alt="Photo Aux Grognards 4">
+                </div>
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="5.png" alt="Photo Aux Grognards 5">
+                </div>
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="6.png" alt="Photo Aux Grognards 6">
+                </div>
+                <div class="gallery-item" data-aos="zoom-in">
+                    <img src="7.png" alt="Photo Aux Grognards 7">
+                </div>
+                <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="8.png" alt="Photo Aux Grognards 8">
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer style="padding: 40px 8%; text-align: center; border-top: 1px solid var(--border); color: var(--grey); font-size: 0.8rem;">
+        <p>&copy; 2026 Aux Grognards Fontainebleau - Tous droits réservés.</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        // Initialisation des animations
+        AOS.init({ duration: 800, once: true });
+
+        // Gestion du menu mobile
+        const menuToggle = document.getElementById('mobile-menu');
+        const navList = document.querySelector('.nav-list');
+
+        menuToggle.addEventListener('click', () => {
+            navList.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

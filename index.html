@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aux Grognards | Cocktail Lounge & Brasserie Fontainebleau</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <style>
+        /* Styles minimalistes pour la section avis */
+        .reviews-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        .review-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            padding: 30px;
+            border-radius: 8px;
+            transition: 0.4s;
+        }
+        .review-card:hover {
+            border-color: var(--gold);
+            background: rgba(197, 160, 89, 0.05);
+        }
+        .stars { color: var(--gold); margin-bottom: 15px; font-size: 0.9rem; }
+        .review-text { font-style: italic; font-size: 0.9rem; color: var(--white); margin-bottom: 15px; }
+        .review-author { color: var(--gold); font-weight: bold; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
+        
+        .google-badge {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.8rem;
+            color: var(--grey);
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">AUX GROGNARDS</div>
+        
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+
+        <ul class="nav-list">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="carte.html">La Carte</a></li>
+            <li><a href="galerie.html">Galerie</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <h1 data-aos="fade-up">L'Art de Vivre Impérial</h1>
+        <p data-aos="fade-up" data-aos-delay="200">Cocktails d'Exception & Brasserie de Tradition</p>
+        <div data-aos="fade-up" data-aos-delay="400">
+            <a href="carte.html" class="btn-gold" style="text-decoration:none">Découvrir la Carte</a>
+        </div>
+    </header>
+
+    <main class="main-wrapper">
+        <section>
+            <h2 class="section-title" data-aos="fade-down">L'Institution</h2>
+            <p class="section-subtitle" data-aos="fade-up">Situé à deux pas du Château de Fontainebleau</p>
+            <div style="max-width: 800px; margin: 0 auto; text-align: center; color: var(--grey);">
+                <p>Depuis son emplacement historique rue Dénecourt, Aux Grognards vous accueille dans une ambiance tamisée et élégante. Que ce soit pour un cocktail signature après une visite du château ou pour déguster nos célèbres pizzas artisanales, chaque moment ici est une parenthèse hors du temps.</p>
+            </div>
+        </section>
+
+        <hr style="border: 0; border-top: 1px solid var(--border); width: 50%; margin: 0 auto;">
+
+        <section id="avis">
+            <h2 class="section-title" style="font-size: 2rem;" data-aos="fade-down">Expériences Clients</h2>
+            <p class="section-subtitle" data-aos="fade-up">Ils parlent de nous</p>
+            
+            <div class="reviews-container">
+                <div class="review-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">"Accueil chaleureux, plats copieux et très bon, le pain est excellent et les cocktails sont très bons aussi. Rien a redire sur ce restaurant très agréable."</p>
+                    <p class="review-author">— Mathilda B.</p>
+                </div>
+
+                <div class="review-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stars">★★★★</div>
+                    <p class="review-text">"Excellent accueil dans un salon confortable avec un service irréprochable pour une petite pause café en décembre. Très bon café liégeois qui réchauffe le corps et sympathique conversation avec les employés qui réchauffe l'esprit. Merci pour votre accueil."</p>
+                    <p class="review-author">— Dominique A.</p>
+                </div>
+
+                <div class="review-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">"Le cadre est charmant et accueillant, avec une décoration soignée qui crée une atmosphère chaleureuse."</p>
+                    <p class="review-author">— Ayla J.</p>
+                </div>
+            </div>
+
+            <div class="google-badge" data-aos="fade-in">
+                <p>Note moyenne <strong>3.8/5</strong> sur Google Reviews</p>
+            </div>
+        </section>
+    </main>
+
+    <footer style="padding: 40px 8%; text-align: center; border-top: 1px solid var(--border); color: var(--grey); font-size: 0.8rem;">
+        <p>&copy; 2026 Aux Grognards Fontainebleau - Tous droits réservés.</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        // Initialisation des animations
+        AOS.init({ duration: 1000, once: true });
+
+        // Script pour faire fonctionner la Navbar mobile
+        const menuToggle = document.getElementById('mobile-menu');
+        const navList = document.querySelector('.nav-list');
+
+        menuToggle.addEventListener('click', () => {
+            navList.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

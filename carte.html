@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Carte - Aux Grognards</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <style>
+        /* Effet de surbrillance sur les cadres au survol */
+        .card {
+            transition: all 0.4s ease;
+            border: 1px solid transparent;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            background: rgba(255, 255, 255, 0.05);
+        }
+        /* Distinction pour les planches */
+        .card.highlight {
+            border: 1px dashed var(--gold);
+            background: rgba(197, 160, 89, 0.05);
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">AUX GROGNARDS</div>
+        
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+
+        <ul class="nav-list">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="carte.html">La Carte</a></li>
+            <li><a href="galerie.html">Galerie</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="main-wrapper">
+        <section>
+            <h2 class="section-title" data-aos="fade-down">La Carte</h2>
+            <p class="section-subtitle" data-aos="fade-up">Cuisine Maison & Saveurs</p>
+
+            <div class="menu-grid">
+                
+                <div class="card" data-aos="fade-up">
+                    <h3 style="color:var(--gold); margin-bottom:20px;">Nos Pizzas</h3>
+                    <div class="menu-item">
+                        <div><span class="item-name">Saumon Avocat</span><span class="item-desc">Saumon, avocat, bufala AOP, pistaches.</span></div>
+                        <span class="price">20.5€</span>
+                    </div>
+                    <div class="menu-item">
+                        <div><span class="item-name">Cannibale</span><span class="item-desc">Viande hachée, merguez, poulet, sauce BBQ.</span></div>
+                        <span class="price">17.6€</span>
+                    </div>
+                    <div class="menu-item">
+                        <div><span class="item-name">Orientale</span><span class="item-desc">Merguez, œuf, oignons, poivrons, olives.</span></div>
+                        <span class="price">14.9€</span>
+                    </div>
+                    <div class="menu-item">
+                        <div><span class="item-name">4 Fromages</span><span class="item-desc">Mozzarella, brie, roquefort, parmesan.</span></div>
+                        <span class="price">13.6€</span>
+                    </div>
+                </div>
+
+                <div class="card" data-aos="fade-up">
+                    <h3 style="color:var(--gold); margin-bottom:20px;">Galettes Sarrasin</h3>
+                    <div class="menu-item">
+                        <div><span class="item-name">Viande Hachée Fromage</span><span class="item-desc">Galette complète au sarrasin.</span></div>
+                        <span class="price">12.3€</span>
+                    </div>
+                    <div class="menu-item">
+                        <div><span class="item-name">Jambon Œuf Fromage</span><span class="item-desc">La traditionnelle complète.</span></div>
+                        <span class="price">10.3€</span>
+                    </div>
+                    <div class="menu-item">
+                        <div><span class="item-name">Poulet Crème</span><span class="item-desc">Poulet, fromage, crème fraîche.</span></div>
+                        <span class="price">9.9€</span>
+                    </div>
+                </div>
+
+                <div class="card highlight" data-aos="fade-up">
+                    <h3 style="color:var(--gold); margin-bottom:10px;">Planches (17h00 - 19h00)</h3>
+                    <p style="font-size: 0.7rem; color: var(--gold); margin-bottom: 20px; text-transform: uppercase;">L'heure de l'apéro</p>
+                    <div class="menu-item">
+                        <div><span class="item-name">Grande Planche Mixte</span><span class="item-desc">Fromages et charcuteries sélectionnés.</span></div>
+                        <span class="price">22€</span>
+                    </div>
+                    <div class="menu-item">
+                        <div><span class="item-name">Petite Planche Mixte</span><span class="item-desc">Assortiment découverte.</span></div>
+                        <span class="price">13.5€</span>
+                    </div>
+                </div>
+
+                <div class="card" data-aos="fade-up">
+                    <h3 style="color:var(--gold); margin-bottom:20px;">Salades & Omelettes</h3>
+                    <div class="menu-item">
+                        <div><span class="item-name">Salade au Saumon</span><span class="item-desc">Salade fraîche, saumon, crudités.</span></div>
+                        <span class="price">13.6€</span>
+                    </div>
+                    <div class="menu-item">
+                        <div><span class="item-name">Omelette Jambon Fromage</span><span class="item-desc">Servie avec sa petite salade.</span></div>
+                        <span class="price">11.6€</span>
+                    </div>
+                </div>
+
+                <div class="card" data-aos="fade-up">
+                    <h3 style="color:var(--gold); margin-bottom:20px;">Desserts & Crêpes</h3>
+                    <div class="menu-item">
+                        <div><span class="item-name">Café Gourmand</span><span class="item-desc">Café et ses 3 mini desserts.</span></div>
+                        <span class="price">9.5€</span>
+                    </div>
+                    <div class="menu-item">
+                        <div><span class="item-name">Tiramisu Maison</span><span class="item-desc">La recette de la maison.</span></div>
+                        <span class="price">6€</span>
+                    </div>
+                    <div class="menu-item">
+                        <div><span class="item-name">Crêpe Nutella Banane</span><span class="item-desc">La préférée des enfants.</span></div>
+                        <span class="price">6.1€</span>
+                    </div>
+                </div>
+
+                <div class="card" data-aos="fade-up">
+                    <h3 style="color:var(--gold); margin-bottom:20px;">Coupes Glacées</h3>
+                    <div class="menu-item">
+                        <div><span class="item-name">Coupe Aux Grognards</span><span class="item-desc">Coco, mangue, orange, passion, chantilly.</span></div>
+                        <span class="price">5.9€</span>
+                    </div>
+                    <div class="menu-item">
+                        <div><span class="item-name">Coupe Colonel</span><span class="item-desc">Sorbet citron et vodka.</span></div>
+                        <span class="price">7.9€</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+    <footer style="padding: 40px 8%; text-align: center; border-top: 1px solid var(--border); color: var(--grey); font-size: 0.8rem;">
+        <p>&copy; 2026 Aux Grognards Fontainebleau - Tous droits réservés.</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        // Initialisation animations
+        AOS.init({ duration: 800, once: true });
+
+        // Script Navbar Mobile
+        const menuToggle = document.getElementById('mobile-menu');
+        const navList = document.querySelector('.nav-list');
+
+        menuToggle.addEventListener('click', () => {
+            navList.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
