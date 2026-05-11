@@ -8,127 +8,53 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     
     <style>
-        /* --- DESIGN INFOS AMÉLIORÉ --- */
+        /* Optimisation de la structure pour mobile */
+        .contact-container {
+            display: flex;
+            flex-direction: column; /* Empile tout verticalement par défaut */
+            gap: 40px;
+        }
+
+        /* Sur PC, on remet côte à côte */
+        @media (min-width: 1024px) {
+            .contact-container {
+                flex-direction: row;
+                align-items: flex-start;
+            }
+            .contact-info, .contact-form-section {
+                flex: 1;
+            }
+        }
+
+        /* Ordre spécifique sur mobile */
+        .info-card { order: 1; }  /* Infos en premier */
+        .map-container { order: 2; margin: 20px 0; } /* Map en deuxième */
+        .contact-form-section { order: 3; } /* Formulaire en dernier */
+
         .info-card {
             border-left: 3px solid var(--gold) !important;
             background: linear-gradient(145deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01)) !important;
             padding: 30px !important;
         }
 
-        .info-title {
-            color: var(--gold);
-            font-size: 1.4rem;
-            margin-bottom: 25px;
-            letter-spacing: 1px;
-            font-family: 'Playfair Display', serif;
-        }
-
-        .info-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 25px;
-            position: relative;
-        }
-
-        .info-icon {
-            font-size: 1.1rem;
-            margin-right: 15px;
-            background: rgba(197, 160, 89, 0.1);
-            width: 45px;
-            height: 45px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            border: 1px solid var(--border);
-            flex-shrink: 0;
-        }
-
-        .info-text { flex-grow: 1; }
-
-        .info-text span {
-            display: block;
-            font-size: 0.65rem;
-            text-transform: uppercase;
-            color: var(--gold);
-            letter-spacing: 1.5px;
-            font-weight: 700;
-        }
-
-        .info-text p {
-            color: var(--white);
-            font-size: 0.95rem;
-            font-weight: 300;
-            margin: 0;
-        }
-
-        .action-btn {
-            background: transparent;
-            border: 1px solid var(--gold);
-            color: var(--gold);
-            padding: 8px 12px;
-            border-radius: 4px;
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            text-decoration: none;
-            transition: 0.3s;
-            margin-left: 10px;
-            white-space: nowrap;
-        }
-
-        .action-btn:hover {
-            background: var(--gold);
-            color: var(--dark-bg);
-        }
-
-        .map-container {
-            margin-top: 20px;
-            height: 230px;
-            border: 1px solid var(--border);
+        .map-container iframe {
+            width: 100%;
+            height: 300px;
             border-radius: 8px;
-            overflow: hidden;
-            transition: 0.4s;
+            filter: grayscale(1) invert(0.9);
+            border: 1px solid var(--border);
         }
-
-        .map-container:hover { border-color: var(--gold); }
-
-        /* --- POP-UP --- */
-        .popup-overlay {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.95);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            z-index: 10000;
-            backdrop-filter: blur(10px);
-        }
-
-        .popup-content {
-            max-width: 400px; width: 85%; text-align: center;
-            border: 1px solid var(--gold); background: var(--dark-bg);
-            padding: 50px 30px; border-radius: 12px; position: relative;
-        }
-
-        .success-icon { width: 80px; height: 80px; margin: 0 auto 20px; }
-        .check-outline { stroke: var(--gold); stroke-dasharray: 1000; stroke-dashoffset: 1000; animation: dash 1.5s ease-in-out forwards; }
-        .check-mark { stroke: var(--white); stroke-dasharray: 1000; stroke-dashoffset: 1000; animation: dash 0.8s 0.5s ease-in-out forwards; }
-        @keyframes dash { to { stroke-dashoffset: 0; } }
-
-        .close-popup { position: absolute; top: 15px; right: 20px; font-size: 28px; color: var(--gold); cursor: pointer; }
     </style>
 </head>
 <body>
 
     <nav>
         <div class="logo">AUX GROGNARDS</div>
-        
         <div class="menu-toggle" id="mobile-menu">
             <span class="bar"></span>
             <span class="bar"></span>
             <span class="bar"></span>
         </div>
-
         <ul class="nav-list">
             <li><a href="index.html">Accueil</a></li>
             <li><a href="carte.html">La Carte</a></li>
@@ -139,90 +65,49 @@
 
     <div class="main-wrapper">
         <section>
-            <h2 class="section-title" data-aos="fade-down">Nous Contacter</h2>
-            <p class="section-subtitle" data-aos="fade-up">Réservations & Accès</p>
+            <h2 class="section-title" data-aos="fade-down">Contact</h2>
+            <p class="section-subtitle" data-aos="fade-up">Nous trouver & Nous écrire</p>
 
             <div class="contact-container">
-                <div class="contact-info" data-aos="fade-right">
-                    <div class="card info-card">
-                        <h3 class="info-title">Informations</h3>
-                        
-                        <div class="info-item">
-                            <div class="info-icon">📍</div>
-                            <div class="info-text">
-                                <span>Adresse</span>
-                                <p>15 Rue Dénecourt, Fontainebleau</p>
-                            </div>
-                            <a href="https://www.google.com/maps/dir/?api=1&destination=15+Rue+Dénecourt+Fontainebleau" target="_blank" class="action-btn">S'y rendre</a>
-                        </div>
-
-                        <div class="info-item">
-                            <div class="info-icon">📞</div>
-                            <div class="info-text">
-                                <span>Téléphone</span>
-                                <p>01 60 39 16 17</p>
-                            </div>
-                            <a href="tel:0160391617" class="action-btn">Appeler</a>
-                        </div>
-
-                        <div class="info-item">
-                            <div class="info-icon">🕒</div>
-                            <div class="info-text">
-                                <span>Horaires</span>
-                                <p>Ouvert 7j/7 : 10h - 02h</p>
-                            </div>
-                        </div>
+                
+                <div class="info-card" data-aos="fade-right">
+                    <h3 class="info-title">Informations</h3>
+                    <div class="info-item">
+                        <p><strong>Adresse :</strong><br>Rue Dénecourt, 77300 Fontainebleau</p>
                     </div>
-
+                    <div class="info-item">
+                        <p><strong>Téléphone :</strong><br><a href="tel:+33164222300" style="color:var(--gold); text-decoration:none;">01 64 22 23 00</a></p>
+                    </div>
+                    <div class="info-item">
+                        <p><strong>Horaires :</strong><br>Ouvert tous les jours de 08h00 à 02h00</p>
+                    </div>
+                    
                     <div class="map-container">
-                        <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2641.054363246833!2d2.700140315662365!3d48.40552797924558!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e5f49e06e30001%3A0x6b449911e2f69466!2s15%20Rue%20D%C3%A9necourt%2C%2077300%20Fontainebleau!5e0!3m2!1sfr!2sfr!4v1700000000000!5m2!1sfr!2sfr" 
-                            width="100%" 
-                            height="100%" 
-                            style="border:0; filter: grayscale(1) invert(90%) opacity(0.8);" 
-                            allowfullscreen="" 
-                            loading="lazy" 
-                            referrerpolicy="no-referrer-when-downgrade">
-                        </iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2642.7845665352697!2d2.7001438!3d48.4050268!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e5f483329f6365%3A0x6b772097e161040a!2sAux%20Grognards!5e0!3m2!1sfr!2sfr!4v1715000000000" allowfullscreen="" loading="lazy"></iframe>
                     </div>
                 </div>
 
-                <div class="contact-form" data-aos="fade-left">
+                <div class="contact-form-section" data-aos="fade-left">
                     <form id="contact-form">
                         <div class="input-group">
-                            <input type="text" name="nom" placeholder="Votre Nom" required>
+                            <input type="text" name="name" placeholder="Votre Nom" required>
                         </div>
                         <div class="input-group">
                             <input type="email" name="email" placeholder="Votre Email" required>
                         </div>
                         <div class="input-group">
-                            <textarea name="message" rows="6" placeholder="Comment pouvons-nous vous aider ?" required></textarea>
+                            <textarea name="message" rows="5" placeholder="Votre Message" required></textarea>
                         </div>
-                        <button type="submit" id="submit-btn" class="btn-gold">Envoyer le message</button>
-                        <p id="status"></p>
+                        <button type="submit" class="btn-gold" style="width:100%; cursor:pointer;">Envoyer le message</button>
                     </form>
                 </div>
+
             </div>
         </section>
     </div>
 
-    <div id="popup-success" class="popup-overlay">
-        <div class="popup-content">
-            <span class="close-popup" onclick="closePopup()">×</span>
-            <div class="success-icon">
-                <svg viewBox="0 0 100 100">
-                    <circle class="check-outline" cx="50" cy="50" r="45" fill="none" stroke-width="2"/>
-                    <path class="check-mark" d="M30 50l15 15 25-30" fill="none" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </div>
-            <h3 style="color:var(--gold); font-family: 'Playfair Display', serif; font-size: 2rem;">Envoyé !</h3>
-            <p style="margin-top:10px; color: var(--white); font-weight: 300;">Nous reviendrons vers vous très rapidement.</p>
-            <button class="btn-gold" style="margin-top:25px; padding: 10px 40px;" onclick="closePopup()">Continuer</button>
-        </div>
-    </div>
-
     <footer style="padding: 40px 8%; text-align: center; border-top: 1px solid var(--border); color: var(--grey); font-size: 0.8rem;">
-        <p>© 2026 Aux Grognards Fontainebleau - Tous droits réservés.</p>
+        <p>&copy; 2026 Aux Grognards Fontainebleau - Tous droits réservés.</p>
     </footer>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
@@ -235,40 +120,6 @@
         menuToggle.addEventListener('click', () => {
             navList.classList.toggle('active');
         });
-
-        // Formulaire Contact
-        const form = document.getElementById("contact-form");
-        const popup = document.getElementById("popup-success");
-        const btn = document.getElementById("submit-btn");
-
-        form.addEventListener("submit", async function(event) {
-            event.preventDefault();
-            btn.innerHTML = "Envoi en cours...";
-            btn.disabled = true;
-
-            const data = new FormData(event.target);
-            try {
-                const response = await fetch("https://formspree.io/f/mnjwlvon", {
-                    method: 'POST',
-                    body: data,
-                    headers: { 'Accept': 'application/json' }
-                });
-
-                if (response.ok) {
-                    popup.style.display = "flex";
-                    form.reset();
-                } else {
-                    alert("Erreur lors de l'envoi");
-                }
-            } catch (error) {
-                alert("Problème de connexion");
-            }
-            btn.innerHTML = "Envoyer le message";
-            btn.disabled = false;
-        });
-
-        function closePopup() { popup.style.display = "none"; }
-        window.onclick = function(event) { if (event.target == popup) { closePopup(); } }
     </script>
 </body>
 </html>
