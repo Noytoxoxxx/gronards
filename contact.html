@@ -8,15 +8,13 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     
     <style>
-        /* Conteneur principal */
         .contact-container {
             display: flex;
-            flex-direction: column; /* Mobile : tout s'empile */
+            flex-direction: column;
             width: 100%;
-            gap: 20px;
+            gap: 25px;
         }
 
-        /* PC : Côte à côte */
         @media (min-width: 1024px) {
             .contact-container {
                 flex-direction: row;
@@ -25,24 +23,20 @@
             .contact-left, .contact-right { flex: 1; }
         }
 
-        /* Cartes d'info */
+        /* Style unifié pour les deux blocs : barre dorée à GAUCHE uniquement */
         .info-card {
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid var(--border);
-            border-left: 3px solid var(--gold);
-            padding: 20px;
+            border-left: 3px solid var(--gold); /* Barre à gauche */
+            padding: 25px;
             width: 100%;
-            box-sizing: border-box; /* Empêche de sortir de l'écran */
+            box-sizing: border-box;
         }
 
         .info-item { margin-bottom: 15px; }
-        .info-item strong { color: var(--gold); display: block; font-size: 0.9rem; text-transform: uppercase; }
+        .info-item strong { color: var(--gold); display: block; font-size: 0.9rem; text-transform: uppercase; margin-bottom: 5px; }
 
-        /* Carte Google Maps */
-        .map-container {
-            width: 100%;
-            margin-top: 10px;
-        }
+        .map-container { width: 100%; margin-top: 15px; }
         .map-container iframe {
             width: 100%;
             height: 250px;
@@ -51,25 +45,36 @@
             filter: grayscale(1) invert(0.9);
         }
 
-        /* Formulaire */
-        .contact-right {
-            width: 100%;
-            box-sizing: border-box;
-        }
         form {
             display: flex;
             flex-direction: column;
             width: 100%;
         }
+
         input, textarea {
             width: 100%;
-            box-sizing: border-box; /* Crucial pour ne pas dépasser */
+            box-sizing: border-box; /* Empêche le débordement sur mobile */
             margin-bottom: 15px;
             padding: 12px;
             background: rgba(255,255,255,0.05);
             border: 1px solid var(--border);
             color: white;
+            font-family: inherit;
         }
+
+        .btn-gold {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            background: var(--gold);
+            color: black;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-gold:hover { background: white; }
     </style>
 </head>
 <body>
@@ -95,7 +100,7 @@
             
             <div class="contact-container">
                 
-                <div class="contact-left">
+                <div class="contact-left" data-aos="fade-up">
                     <div class="info-card">
                         <div class="info-item">
                             <strong>Adresse</strong>
@@ -106,21 +111,19 @@
                             <p><a href="tel:+33164222300" style="color:white; text-decoration:none;">01 64 22 23 00</a></p>
                         </div>
                         <div class="map-container">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2643.5!2d2.7000!3d48.4060!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e5f3f000000000%3A0x0!2sAux%20Grognards!5e0!3m2!1sfr!2sfr!4v123456789" allowfullscreen="" loading="lazy"></iframe>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2654.5833!2d2.7015!3d48.4047!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e5f483!2zUnVlIETDqW5lY291cnQsIDc3MzAwIEZvbnRhaW5lYmxlYXU!5e0!3m2!1sfr!2sfr!4v1" allowfullscreen="" loading="lazy"></iframe>
                         </div>
                     </div>
                 </div>
 
-                <div class="contact-right">
-                    <div class="info-card" style="border-left:none; border-top:3px solid var(--gold);">
-                        <p style="margin-bottom:20px; color:var(--gold);">Envoyez-nous un message</p>
+                <div class="contact-right" data-aos="fade-up" data-aos-delay="200">
+                    <div class="info-card">
+                        <p style="margin-bottom:20px; color:var(--gold); font-weight: bold; text-transform: uppercase; font-size: 0.9rem;">Envoyez-nous un message</p>
                         <form id="contact-form">
                             <input type="text" placeholder="Votre Nom" required>
                             <input type="email" placeholder="Votre Email" required>
-                            <textarea rows="4" placeholder="Votre Message" required></textarea>
-                            <button type="submit" class="btn-gold" style="width:100%; padding: 15px; border:none; cursor:pointer;">
-                                Envoyer
-                            </button>
+                            <textarea rows="5" placeholder="Votre Message" required></textarea>
+                            <button type="submit" class="btn-gold">Envoyer</button>
                         </form>
                     </div>
                 </div>
